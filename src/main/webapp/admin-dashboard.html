@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+<form id="addProductForm">
+    <input type="text" id="productName" placeholder="Product Name" required />
+    <input type="number" id="productPrice" placeholder="Product Price" required />
+    <button type="submit">Add Product</button>
+</form>
+
+<h2>Product List</h2>
+<ul id="productList"></ul>
+
+<script>
+    // Fetch Products
+    function fetchProducts() {
+        fetch('http://localhost:8080/web-war-exploded/admin/products')
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('productList');
+                productList.innerHTML = '';
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.textContent = `${product.name} - $${product.price}`;
+                    li.dataset.id = product.id;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.addEventListener('click', () => deleteProduct(product.id));
+
+                    li.appendChild(deleteBtn);
+                    productList.appendChild(li);
+                });
+            });
+    }
+
+    // Add Product
+    document.getElementById('addProductForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('productName').value;
+        const price = document.getElementById('productPrice').value;
+
+        fetch('http://localhost:8080/web-war-exploded/admin/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `name=${name}&price=${price}`,
+        })
+            .then(response => response.json())
+            .then(() => {
+                fetchProducts();
+            });
+    });
+
+    // Delete Product
+    function deleteProduct(id) {
+        fetch(`http://localhost:8080/web-war-exploded/admin/products?id=${id}`, {
+            method: 'DELETE',
+        })
+            .then(response => response.json())
+            .then(() => {
+                fetchProducts();
+            });
+    }
+
+    // Initial Fetch
+    fetchProducts();
+</script>
+</body>
+</html>
