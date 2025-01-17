@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "name": "Team Logo T-Shirt",
+      "imageUrl": "images/team-tshirt.png",
+      "price": 29.99,
+      "rating": 4.5,
+      "stockQuantity": 100
+    },
+    {
+      "id": 2,
+      "name": "Sports Cap",
+      "imageUrl": "images/sports-cap.png",
+      "price": 24.99,
+      "rating": 4.0,
+      "stockQuantity": 75
+    },
+    {
+      "id": 3,
+      "name": "Team Jersey",
+      "imageUrl": "images/team-jersey.png",
+      "price": 89.99,
+      "rating": 5.0,
+      "stockQuantity": 50
+    }
+  ]
