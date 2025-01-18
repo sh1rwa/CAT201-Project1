@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FanZone Items</title>
+    <title>SportGoods | Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>FanZone Items</h1>
-    </header>
-    <main>
-        <div id="item-grid" class="grid-container"></div>
-    </main>
-
-    <!-- Modal for item details -->
-    <div id="item-modal" class="modal hidden">
-        <div class="modal-content">
-            <span id="close-modal" class="close-button">&times;</span>
-            <img id="modal-image" alt="Item Image">
-            <h2 id="modal-name"></h2>
-            <p id="modal-price"></p>
-            <p id="modal-rating"></p>
-            <p id="modal-stock"></p>
-            <button id="add-to-cart">Add to Cart</button>
+        <div class="logo">
+            <h1>SportGoods</h1>
         </div>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="fanzone.html" class="explore-btn">Explore Fanzone</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <script src="script.js"></script>
+    <section class="hero">
+        <div class="hero-overlay">
+            <h2>Your One-Stop Shop for All Things Sports</h2>
+            <p>Explore the latest sports gear, apparel, and more at SportGoods.</p>
+            <a href="fanzone.html" class="explore-btn">Explore Fanzone</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>At SportGoods, we believe in providing the best products for sports enthusiasts. Whether you're into team sports, individual training, or outdoor adventures, we have something for everyone!</p>
+        </div>
+        <div class="about-image">
+            <img src="images/sport-equipment.jpg" alt="Sport Equipment" />
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SportGoods | All rights reserved</p>
+    </footer>
 </body>
 </html>

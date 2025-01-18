@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalRating = document.getElementById("modal-rating");
     const modalStock = document.getElementById("modal-stock");
     const addToCartButton = document.getElementById("add-to-cart");
-
     let selectedItem = null;
-
     // Fetch and display items
     fetch("items.json")
         .then(response => response.json())
@@ -18,24 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
             data.forEach(item => {
                 const gridItem = document.createElement("div");
                 gridItem.className = "grid-item";
-
                 gridItem.innerHTML = `
                     <img src="${item.imageUrl}" alt="${item.name}">
                     <h3>${item.name}</h3>
                     <p>$${item.price.toFixed(2)}</p>
                     <p>⭐ ${item.rating}</p>
                 `;
-
                 gridItem.addEventListener("click", () => {
                     selectedItem = item;
                     showModal(item);
                 });
-
                 itemGrid.appendChild(gridItem);
             });
         })
         .catch(error => console.error("Error fetching items:", error));
-
     // Show modal
     function showModal(item) {
         modalImage.src = item.imageUrl;
@@ -45,12 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
         modalStock.textContent = `In stock: ${item.stockQuantity}`;
         modal.classList.remove("hidden");
     }
-
     // Hide modal
     closeModal.addEventListener("click", () => {
         modal.classList.add("hidden");
     });
-
     // Add to cart functionality
     addToCartButton.addEventListener("click", () => {
         if (selectedItem) {
