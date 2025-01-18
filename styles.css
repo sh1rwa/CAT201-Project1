@@ -158,3 +158,17 @@ a {
     background-color: #333;
     color: white;
 }
+
+.home-button {
+    padding: 10px 20px;
+    background-color: #000000;  /* Change this color to suit your design */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #000000; /* A darker blue on hover */
+}
