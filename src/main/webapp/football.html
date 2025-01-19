@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football</title>
+    <link rel="stylesheet" href="football.css">
+</head>
+
+<body>
+    <header>
+        <h1>Browse Boots</h1>
+    </header>
+
+    <!-- First Navigation Bar -->
+    <nav class="site-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="equipment.html">Equipment</a></li>
+            <li><a href="football.html">Football</a></li>
+            <li><a href="My Cart.html">My Cart</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Second Navigation Bar -->
+    <nav class="product-nav">
+        <ul>
+            <li><a href="#" data-category="All Product">All Product</a></li>
+            <li><a href="#" data-category="Firm Ground">Firm Ground</a></li>
+            <li><a href="#" data-category="Turf">Turf</a></li>
+            <li><a href="#" data-category="Artificial Grass">Artificial Grass</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Dynamic product container -->
+        <div class="product-container">
+            <!-- Product cards will be dynamically loaded here via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Notification for adding items to the cart -->
+    <div id="cart-notification" class="hidden">
+        <span class="notification-icon">✔️</span>
+        <span class="notification-message">Item added to cart!</span>
+    </div>
+
+    <!-- JavaScript for dynamic loading -->
+    <script src="football.js"></script>
+</body>
+</html>

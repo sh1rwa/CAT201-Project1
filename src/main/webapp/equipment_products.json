@@ -1,0 +1,132 @@
+[
+    {
+        "name": "Nike Academy",
+        "category": "Ball",
+        "price": "RM79",
+        "image": "images/nikeAcademy.png"
+    },
+    {
+        "name": "Nike Futsal Pro",
+        "category": "Ball",
+        "price": "RM79",
+        "image": "/images/nikeFutsalPro.png"
+    },
+    {
+        "name": "Nike Maestro",
+        "category": "Ball",
+        "price": "RM79",
+        "image": "/images/nikeMaestro.png"
+    },
+    {
+        "name": "Nike Skills",
+        "category": "Ball",
+        "price": "RM49",
+        "image": "/images/nikeSkills.png"
+    },
+    {
+        "name": "Nike Match",
+        "category": "Glove",
+        "price": "RM69",
+        "image": "/images/Nike Match.png"
+    },
+    {
+        "name": "Nike J",
+        "category": "Shin Guard",
+        "price": "RM39",
+        "image": "/images/Nike J.png"
+    },
+    {
+        "name": "Adidas Tiro Sg Training",
+        "category": "Shin Guard",
+        "price": "RM45",
+        "image": "/images/Adidas Tiro Sg Training.jpeg"
+    },
+    {
+        "name": "Adidas Tiro Sg Trn",
+        "category": "Shin Guard",
+        "price": "RM45",
+        "image": "/images/Adidas Tiro Sg Trn.jpeg"
+    },
+    {
+        "name": "Training Cone",
+        "category": "Training",
+        "price": "RM50",
+        "image": "/images/training cone.jpg"
+    },
+    {
+        "name": "Goal Post",
+        "category": "Training",
+        "price": "RM60",
+        "image": "/images/Goal Post.jpeg"
+    },
+    {
+        "name": "Training Ladder",
+        "category": "Training",
+        "price": "RM59",
+        "image": "/images/Training Ladder.jpg"
+    },
+    {
+        "name": "Duffel Bags Nike Brasilia",
+        "category": "Bags",
+        "price": "RM149",
+        "image": "/images/Duffel Bags Nike Brasilia.png"
+    },
+    {
+        "name": "PLYR FC X Nike Training",
+        "category": "Bags",
+        "price": "RM200",
+        "image": "/images/PLYR FC X Nike Training.png"
+    },
+    {
+        "name": "Adidas Training Sack Three",
+        "category": "Bags",
+        "price": "RM69",
+        "image": "/images/Adidas Training Sack Three.png"
+    },
+    {
+        "name": "Debenham LC Coaches",
+        "category": "Bags",
+        "price": "RM49",
+        "image": "/images/Debenham LC Coaches.png"
+    },
+    {
+        "name": "CORE Football",
+        "category": "Bags",
+        "price": "RM49",
+        "image": "/images/CORE Football.jpeg"
+    },
+    {
+        "name": "Nike Club Team",
+        "category": "Bags",
+        "price": "RM79",
+        "image": "/images/Nike Club Team.jpeg"
+    },
+    {
+        "name": "Nike Match Jr.",
+        "category": "Glove",
+        "price": "RM89",
+        "image": "/images/Nike Match Jr..png"
+    },
+
+    {
+        "name": "Nike Grip 3.",
+        "category": "Glove",
+        "price": "RM55",
+        "image": "/images/Nike Grip3.png"
+    },
+
+    {
+        "name": "Retro Ergonomic Supergrip.",
+        "category": "Glove",
+        "price": "RM55",
+        "image": "/images/Retro Ergonomic Supergrip.jpg"
+    },
+
+    {
+        "name": "Adidas Ace Training.",
+        "category": "Glove",
+        "price": "RM78",
+        "image": "/images/Adidas Ace Training.jpg"
+    }
+
+]

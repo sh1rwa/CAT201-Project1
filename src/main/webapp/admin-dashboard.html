@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+<h2>Fanzone Product List</h2>
+<ul id="productList"></ul>
+<h2>Equipment Products</h2>
+<ul id="equipmentProductList"></ul>
+<h2>Football Products</h2>
+<ul id="footballProductList"></ul>
+
+<script>
+    // Fetch Products from API
+    function fetchProducts() {
+        fetch('http://desktop-9frtm12:8080/admin-login/product')
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('productList');
+                productList.innerHTML = '';
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.textContent = `${product.name} - $${product.imageUrl} - $${product.price} - $${product.rating} - $${product.stockQuantity}`;
+                    li.dataset.id = product.id;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.addEventListener('click', () => deleteProduct(product.id));
+
+                    li.appendChild(deleteBtn);
+                    productList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+    }
+
+    // Fetch Equipment Products from JSON
+    function fetchEquipmentProducts() {
+        fetch('/equipment_products.json')
+            .then(response => response.json())
+            .then(products => {
+                const equipmentProductList = document.getElementById('equipmentProductList');
+                equipmentProductList.innerHTML = '';
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px;">
+                        ${product.name} - ${product.category} - ${product.price}`;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.addEventListener('click', () => alert(`Delete ${product.name}`));
+
+                    li.appendChild(deleteBtn);
+                    equipmentProductList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching equipment products:', error));
+    }
+
+    // Fetch Equipment Products from JSON
+    function fetchFootballProducts() {
+        fetch('/football_products.json')
+            .then(response => response.json())
+            .then(products => {
+                const footballtProductList = document.getElementById('footballProductList');
+                footballProductList.innerHTML = '';
+
+                products.forEach(product => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px;">
+                        ${product.name} - ${product.category} - ${product.price}`;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.addEventListener('click', () => alert(`Delete ${product.name}`));
+
+                    li.appendChild(deleteBtn);
+                    equipmentProductList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching football products:', error));
+    }
+
+
+    // Initial Fetch
+    fetchProducts();
+    fetchEquipmentProducts();
+    fetchFootballProducts();
+</script>
+</body>
+</html>

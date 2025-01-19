@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    margin: 0px;
+    padding: 2px;
+}
+
+.site-nav {
+    background-color: #ffffff;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.site-nav ul {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-nav ul li {
+    display: inline;
+    margin: 0;
+}
+
+.site-nav ul li a {
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-nav {
+    box-sizing: border-box;
+    margin: 0px;
+    width: 25%;
+}
+
+.product-nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.product-nav ul li a{
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    float: left;
+    width: 50%;
+    height: 50px; 
+    background: #573737;
+    color:#ffffff;
+    padding: 40px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    width: 250px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 16px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.buy-button {
+    background: #ff6600;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.buy-button:hover {
+    background: #e65c00;
+}
+
+
+ul li:hover a{
+    background: #f0f0f0;
+    color: #000000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Notification Styles */
+#cart-notification {
+    position: fixed;
+    bottom: 20px; /* Positioned at the bottom center */
+    left: 50%;
+    transform: translateX(-50%) translateY(50px); /* Slightly off-screen by default */
+    background: linear-gradient(135deg, #4caf50, #81c784); /* Stylish green gradient */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Smooth shadow */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and message */
+    opacity: 0; /* Hidden by default */
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.4s ease-out; /* Smooth appearance */
+  }
+  
+  #cart-notification.show {
+    opacity: 1; /* Visible */
+    transform: translateX(-50%) translateY(0); /* Slide into view */
+  }
+  
+  .notification-icon {
+    font-size: 1.5rem; /* Icon size */
+  }
+  
+  .notification-message {
+    font-weight: 600; /* Bold message text */
+  }
+  

@@ -1,0 +1,63 @@
+[
+    {
+        "name": "Nike Mercurial Superfly 10 Academy",
+        "price": "RM439",
+        "category": "Firm Ground",
+        "image": "/images/Nike Mercurial Superfly 10 Academy.png"
+    },
+    {
+        "name": "Nike Mercurial Superfly 10 Club",
+        "price": "RM279",
+        "category": "Firm Ground",
+        "image": "/images/Nike Mercurial Superfly 10 Club.png"
+    },
+    {
+        "name": "Nike Tiempo Legend 10 Elite",
+        "price": "RM1,019",
+        "category": "Firm Ground",
+        "image": "/images/Nike Tiempo Legend 10 Elite.png"
+    },
+    {
+        "name": "Nike Phantom GX 2 Academy",
+        "price": "RM375",
+        "category": "Turf",
+        "image": "/images/Nike Phantom GX 2 Academy.png"
+    },
+
+    {
+        "name": "Nike Jr. Mercurial Superfly 10 Club",
+        "price": "RM1,019",
+        "category": "Firm Ground",
+        "image": "/images/Nike Jr. Mercurial Superfly 10 Club.png"
+    },
+
+    {
+        "name": "Nike Mercurial Vapor 16 Elite",
+        "price": "RM1,019",
+        "category": "Artificial Grass",
+        "image": "/images/Nike Mercurial Vapor 16 Elite.png"
+    },
+
+    {
+        "name": "Nike Phantom GX 2 Elite",
+        "price": "RM1,019",
+        "category": "Artificial Grass",
+        "image": "/images/NIke Phantom GX 2 Elite.png"
+    },
+
+    {
+        "name": "Nike Phantom GX 2 Elite",
+        "price": "RM1,019",
+        "category": "Artificial Grass",
+        "image": "/images/Nike Phantom Luna 2 Academy.png"
+    },
+
+    {
+        "name": "Nike Tiempo Legend 10 Elite Electric",
+        "price": "RM1,019",
+        "category": "Firm Ground",
+        "image": "/images/Nike Tiempo Legend 10 Elite Electric.png"
+    }
+
+
+]

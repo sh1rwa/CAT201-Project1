@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button onclick="window.location.href='index.html'">← Back to Home</button>
+    </header>
+
+    <div id="cart-container"></div>
+
+    <!-- Checkout button -->
+    <button id="checkout-btn" onclick="handleCheckout()" style="display: none;">Checkout</button>
+
+    <script src="cart.js"></script>
+    <script>
+        // Function to handle checkout
+        function handleCheckout() {
+            const userId = localStorage.getItem("userId");
+
+            if (userId) {
+                // If the user is logged in, proceed to checkout page
+                window.location.href = 'checkout.html';
+            } else {
+                // If not logged in, redirect to login page
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Check if there are items in the cart and toggle the visibility of the checkout button
+        function checkCartItems() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const checkoutButton = document.getElementById("checkout-btn");
+
+            // If there are no items in the cart, hide the checkout button
+            if (cart.length === 0) {
+                checkoutButton.style.display = "none";
+            } else {
+                checkoutButton.style.display = "inline-block";
+            }
+        }
+
+        // Call the checkCartItems function when the page loads
+        window.onload = checkCartItems;
+    </script>
+</body>
+</html>
