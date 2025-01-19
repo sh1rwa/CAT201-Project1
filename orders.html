@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+</head>
+<body>
+    <h2>Your Orders</h2>
+    <div id="orders-container"></div>
+
+    <script>
+        // Function to fetch order data from orders.json
+        async function fetchOrdersData() {
+            try {
+                const response = await fetch("orders.json"); // Path to your orders.json
+                return await response.json();
+            } catch (error) {
+                console.error("Error fetching orders data:", error);
+                return [];
+            }
+        }
+
+        // Function to render orders based on userId
+        async function renderOrders() {
+            const userId = localStorage.getItem("userId");
+            if (!userId) {
+                alert("You must be logged in to view your orders.");
+                window.location.href = "login.html"; // Redirect to login page if no user is logged in
+                return;
+            }
+
+            const orders = await fetchOrdersData();
+            const userOrders = orders.filter(order => order.userId == userId); // Filter orders based on userId
+
+            const ordersContainer = document.getElementById("orders-container");
+
+            if (userOrders.length === 0) {
+                ordersContainer.innerHTML = "<p>You have no orders.</p>";
+                return;
+            }
+
+            userOrders.forEach(order => {
+                const orderElement = document.createElement("div");
+                orderElement.classList.add("order");
+                orderElement.innerHTML = `
+                    <h3>Order ID: ${order.orderId}</h3>
+                    <p>Total Price: $${order.totalPrice.toFixed(2)}</p>
+                    <h4>Items:</h4>
+                    <ul>
+                        ${order.items.map(item => `
+                            <li>${item.name} - Quantity: ${item.quantity} - $${(item.quantity * item.price).toFixed(2)}</li>
+                        `).join('')}
+                    </ul>
+                `;
+                ordersContainer.appendChild(orderElement);
+            });
+        }
+
+        // Call the function to render the orders
+        renderOrders();
+    </script>
+</body>
+</html>

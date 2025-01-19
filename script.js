@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let selectedItem = null;
 
+    // Initialize cart (retrieve from localStorage or create a new array)
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     // Fetch and display items
     fetch("items.json")
         .then(response => response.json())
@@ -20,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gridItem.className = "grid-item";
 
                 gridItem.innerHTML = `
-                    <img src="${item.imageUrl}" alt="${item.name}">
+                    <img src="${item.imageUrl}" alt="${item.name}" class="item-image">
                     <h3>${item.name}</h3>
                     <p>$${item.price.toFixed(2)}</p>
                     <p>⭐ ${item.rating}</p>
@@ -54,6 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add to cart functionality
     addToCartButton.addEventListener("click", () => {
         if (selectedItem) {
+            // Check if the item is already in the cart
+            const cartItem = cart.find(item => item.id === selectedItem.id);
+            if (cartItem) {
+                // If the item is already in the cart, increase its quantity
+                cartItem.quantity += 1;
+            } else {
+                // Add the item to the cart with an initial quantity of 1
+                cart.push({ ...selectedItem, quantity: 1 });
+            }
+
+            // Save the updated cart to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Show success message
             alert(`${selectedItem.name} has been added to your cart!`);
         }
     });

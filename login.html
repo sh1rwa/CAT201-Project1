@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+</head>
+<body>
+    <h2>Login / Register</h2>
+
+    <!-- Login Form -->
+    <div id="login-form">
+        <h3>Login</h3>
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" required><br><br>
+
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" required><br><br>
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="register-form" style="margin-top: 20px;">
+        <h3>Register</h3>
+        <label for="register-username">Username:</label>
+        <input type="text" id="register-username" required><br><br>
+
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" required><br><br>
+
+        <button onclick="register()">Register</button>
+    </div>
+
+    <script>
+        // Simulating users data (this would be replaced with a real database or file)
+        const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
+
+        // Function to log in the user
+        function login() {
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+
+            const user = usersData.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                // Save userId in localStorage
+                localStorage.setItem("userId", user.userId);
+                alert("Login successful! Redirecting to cart...");
+                window.location.href = 'cart.html';  // Redirect to cart page after login
+            } else {
+                alert("Invalid login credentials!");
+            }
+        }
+
+        // Function to register a new user
+        function register() {
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+
+            const existingUser = usersData.find(user => user.username === username);
+
+            if (existingUser) {
+                alert("Username already taken. Please choose another.");
+            } else {
+                const newUserId = usersData.length + 1;
+                const newUser = { username, password, userId: newUserId };
+                usersData.push(newUser);
+
+                // Save new userId and update usersData in localStorage
+                localStorage.setItem("userId", newUserId);
+                localStorage.setItem("usersData", JSON.stringify(usersData));
+
+                alert("Registration successful! Redirecting to cart...");
+                window.location.href = 'cart.html';  // Redirect to cart page after registration
+            }
+        }
+    </script>
+</body>
+</html>

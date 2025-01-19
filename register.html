@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register for an Account</h2>
+    <form id="register-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        // Function to fetch users data from users.json
+        async function fetchUsersData() {
+            try {
+                const response = await fetch("users.json"); // Path to users.json
+                return await response.json();
+            } catch (error) {
+                console.error("Error fetching users data:", error);
+                return [];
+            }
+        }
+
+        // Handle form submission
+        document.getElementById("register-form").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const usersData = await fetchUsersData();
+
+            // Check if username already exists
+            const userExists = usersData.some(user => user.username === username);
+
+            if (userExists) {
+                alert("Username already exists. Please choose another.");
+            } else {
+                // Add new user to users data (you would normally send this to a backend)
+                const newUser = { username, password, userId: usersData.length + 1 };
+                usersData.push(newUser);
+
+                // Save updated users data to the file (or backend in a real-world scenario)
+                await updateUsersData(usersData);
+
+                // Store userId in localStorage and redirect to checkout page
+                localStorage.setItem("userId", newUser.userId);
+                window.location.href = 'checkout.html';
+            }
+        });
+
+        // Function to update users data
+        async function updateUsersData(usersData) {
+            try {
+                const response = await fetch("update-users.json", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(usersData)
+                });
+                return await response.json();
+            } catch (error) {
+                console.error("Error updating users data:", error);
+            }
+        }
+    </script>
+</body>
+</html>

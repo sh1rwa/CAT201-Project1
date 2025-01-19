@@ -1,0 +1,18 @@
+
+
+
+
+.cart-image {
+    width: 0.5;  /* Adjust the width as needed */
+    height: 0.5; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image scales properly */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
